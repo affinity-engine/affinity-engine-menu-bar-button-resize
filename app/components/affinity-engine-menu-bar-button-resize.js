@@ -1,0 +1,1 @@
+export { default } from 'affinity-engine-menu-bar-button-resize/components/affinity-engine-menu-bar-button-resize';
