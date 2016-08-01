@@ -1,24 +1,33 @@
+import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import { deepStub } from 'affinity-engine';
+
+const {
+  getProperties,
+  setProperties
+} = Ember;
 
 moduleForComponent('affinity-engine-menu-bar-button-resize', 'Integration | Component | affinity engine menu bar button resize', {
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+const configurationTiers = [
+  'config.attrs.component.menuBar.button.resize',
+  'config.attrs.component.menuBar',
+  'config.attrs'
+];
 
-  this.render(hbs`{{affinity-engine-menu-bar-button-resize}}`);
+configurationTiers.forEach((priority) => {
+  test(`icon and iconFamily are assigned by priority ${priority}`, function(assert) {
+    assert.expect(1);
 
-  assert.equal(this.$().text().trim(), '');
+    const stub = deepStub(priority, { iconFamily: 'fa-icon', icon: 'cloud-upload' });
 
-  // Template block usage:
-  this.render(hbs`
-    {{#affinity-engine-menu-bar-button-resize}}
-      template block text
-    {{/affinity-engine-menu-bar-button-resize}}
-  `);
+    setProperties(this, getProperties(stub, 'config'));
 
-  assert.equal(this.$().text().trim(), 'template block text');
+    this.render(hbs`{{affinity-engine-menu-bar-button-resize config=config}}`);
+
+    assert.ok(this.$('i').hasClass('fa-cloud-upload'), 'icon correct');
+  });
 });

@@ -69,8 +69,6 @@ export default Component.extend(ModalToggleMixin, {
   },
 
   _shrink() {
-    const _engineElement = get(this, '_engineElement');
-
     if (document.exitFullscreen) {
       document.exitFullscreen();
     } else if (document.webkitExitFullscreen) {
