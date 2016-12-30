@@ -19,6 +19,7 @@ const isFullScreen = function isFullScreen(element) {
 // Can't get QUnit to enter full screen. Keep this here until we figure it out
 test('Affinity Engine | Menu Bar | Buttons | Resize', function(assert) {
   // assert.expect(3);
+  const done = assert.async();
 
   visit('/').then(() => {
     assert.ok(!isFullScreen($hook('affinity_engine').get(0)), 'starts not fullscreen');
@@ -30,5 +31,7 @@ test('Affinity Engine | Menu Bar | Buttons | Resize', function(assert) {
   //   return click(hook('affinity_engine_menu_bar_resize'));
   // }).then(() => {
     assert.ok(!isFullScreen($hook('affinity_engine').get(0)), 'is shrunk');
+
+    done();
   });
 });
