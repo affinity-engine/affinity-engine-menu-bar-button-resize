@@ -11,9 +11,9 @@ const {
 } = Ember;
 
 const configurationTiers = [
-  'config.attrs.component.menuBar.button.resize',
-  'config.attrs.component.menuBar',
-  'config.attrs.global'
+  'component.menuBar.button.resize',
+  'component.menuBar',
+  'children'
 ];
 
 export default Component.extend(ModalToggleMixin, {

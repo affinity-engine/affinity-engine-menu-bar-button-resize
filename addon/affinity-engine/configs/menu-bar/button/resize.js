@@ -1,9 +1,14 @@
 export default {
+  priority: 2,
   component: {
     menuBar: {
       button: {
         resize: {
-          icon: 'expand'
+          attrs: {
+            icon: {
+              type: 'expand'
+            }
+          }
         }
       }
     }
