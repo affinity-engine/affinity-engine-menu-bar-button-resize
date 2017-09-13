@@ -13,7 +13,7 @@ const {
 const configurationTiers = [
   'component.menuBar.button.resize',
   'component.menuBar',
-  'children'
+  'all'
 ];
 
 export default Component.extend(ModalToggleMixin, {
