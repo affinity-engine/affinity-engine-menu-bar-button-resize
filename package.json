@@ -1,6 +1,6 @@
 {
   "name": "affinity-engine-menu-bar-button-resize",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A resize menu for the Affinity Engine menu-bar",
   "keywords": [
     "ember-addon",
